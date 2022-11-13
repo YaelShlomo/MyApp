@@ -11,5 +11,20 @@ export class TaskService {
             { id: 3, name: 'task3 from service', done: true},
           ]
     }
+
+    getValue(): Promise<number> {
+        return new Promise<number>((resolve, reject) => {
+            resolve(1);
+            //reject("no number found");
+        });
+    }
+
+    callFunc() {
+        var x: number;
+        this.getValue().then((value) => {
+            x = value;
+        })
+        console.log("after call getValue");
+    }
     
 }
