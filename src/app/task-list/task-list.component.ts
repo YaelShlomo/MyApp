@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Priority, Task } from '../task.model'
+import { Priority, Task } from '../task.model';
+import { TaskService } from '../task.service'
 
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.css']
+  styleUrls: ['./task-list.component.css'],
+  providers: []
 })
 export class TaskListComponent implements OnInit {
 
   priority = Priority;
 
-  tasks: Task[] = [
-    { id: 1, name: 'task1', description: "task1 description", done:true },
-    { id: 2, name: 'task2', done: false, priority: Priority.High},
-    { id: 3, name: 'task3', done: true},
-  ];
+  // tasks: Task[] = [
+  //   { id: 1, name: 'task1', description: "task1 description", done:true },
+  //   { id: 2, name: 'task2', done: false, priority: Priority.High},
+  //   { id: 3, name: 'task3', done: true},
+  // ];
+
+  tasks: Task[] = this._taskService.getTasks();
 
   selectedTask: Task;
 
@@ -72,7 +76,7 @@ export class TaskListComponent implements OnInit {
     this.selectedTask = taskToShow;
   }
 
-  constructor() { }
+  constructor(private _taskService: TaskService) { }
 
   ngOnInit(): void {
   }

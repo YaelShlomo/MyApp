@@ -6,10 +6,12 @@ import { TaskDetailsComponent } from './task-details/task-details.component';
 import { FormsModule, ReactiveFormsModule  } from "@angular/forms";
 import { TaskDetailsFormTDComponent } from './task-details-form-td/task-details-form-td.component';
 import { TaskDetailsFromMDComponent } from './task-details-from-md/task-details-from-md.component';
+import { TaskService } from "./task.service";
 
 @NgModule({
     declarations: [AppComponent, TaskListComponent, TaskDetailsComponent, TaskDetailsFormTDComponent, TaskDetailsFromMDComponent],
     imports: [BrowserModule, FormsModule, ReactiveFormsModule ],
+    providers: [TaskService],
     bootstrap: [AppComponent],
 
 })
