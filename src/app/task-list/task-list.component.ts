@@ -18,7 +18,7 @@ export class TaskListComponent implements OnInit {
   //   { id: 3, name: 'task3', done: true},
   // ];
 
-  tasks: Task[] = this._taskService.getTasks();
+  tasks: Task[];
 
   selectedTask: Task;
 
@@ -76,7 +76,11 @@ export class TaskListComponent implements OnInit {
     this.selectedTask = taskToShow;
   }
 
-  constructor(private _taskService: TaskService) { }
+  constructor(private _taskService: TaskService) {
+    _taskService.getTasksSlowly().then(data => {
+      this.tasks = data;
+    })
+   }
 
   ngOnInit(): void {
   }
