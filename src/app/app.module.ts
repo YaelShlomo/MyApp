@@ -9,11 +9,12 @@ import { TaskDetailsFromMDComponent } from './task-details-from-md/task-details-
 import { TaskService } from "./task.service";
 import { AsyncAwaitDemoComponent } from "./async-await-demo/async-await-demo.component";
 import { ObservableDemoComponent } from "./observable-demo/observable-demo.component";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
     declarations: [AppComponent, TaskListComponent, TaskDetailsComponent, TaskDetailsFormTDComponent,
         TaskDetailsFromMDComponent, AsyncAwaitDemoComponent, ObservableDemoComponent],
-    imports: [BrowserModule, FormsModule, ReactiveFormsModule],
+    imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
     providers: [TaskService],
     bootstrap: [AppComponent],
 

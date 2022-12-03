@@ -77,7 +77,11 @@ export class TaskListComponent implements OnInit {
   }
 
   constructor(private _taskService: TaskService) {
-    _taskService.getTasksSlowly().then(data => {
+    // _taskService.getTasksSlowly().then(data => {
+    //   this.tasks = data;
+    // })
+
+    _taskService.getTasksFromServer().subscribe(data =>{
       this.tasks = data;
     })
    }

@@ -1,4 +1,6 @@
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs/internal/Observable";
 import { Task, Priority } from "./task.model";
 const TASKS = [
     { id: 1, name: 'task1 from service', description: "task1 description", done: true },
@@ -19,6 +21,10 @@ export class TaskService {
             },5000)
         })
 
+    }
+
+    getTasksFromServer(): Observable<Task[]> {
+          return this._http.get<Task[]>("http://localhost:56133/api/Tasks")
     }
 
     getValue(): Promise<number> {
@@ -43,7 +49,7 @@ export class TaskService {
         console.log("after call getValue");
     }
 
-    constructor() {
+    constructor(private _http:HttpClient) {
         this.callFunc();
     }
 
