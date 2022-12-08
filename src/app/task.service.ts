@@ -24,7 +24,15 @@ export class TaskService {
     }
 
     getTasksFromServer(): Observable<Task[]> {
-          return this._http.get<Task[]>("http://localhost:56133/api/Tasks")
+          return this._http.get<Task[]>("/api/Tasks");
+    }
+
+    getTasksFromServerByDone(done: boolean) {
+        return this._http.get<Task[]>("/api/Tasks/?done=" + done);
+    }
+
+    saveTasks(tasksList: Task[]): Observable<boolean> {
+        return this._http.post<boolean>("/api/Tasks", tasksList)
     }
 
     getValue(): Promise<number> {

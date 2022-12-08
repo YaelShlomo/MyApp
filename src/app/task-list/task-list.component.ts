@@ -76,6 +76,19 @@ export class TaskListComponent implements OnInit {
     this.selectedTask = taskToShow;
   }
 
+  showTasksByDone(done: boolean) {
+    this._taskService.getTasksFromServerByDone(done).subscribe( data => {
+      this.tasks = data;
+    })
+  }
+
+  saveTaskToServer() {
+    this._taskService.saveTasks(this.tasks).subscribe( data => {
+      if (data)
+        alert("Task saved successfully");
+    })
+  }
+
   constructor(private _taskService: TaskService) {
     // _taskService.getTasksSlowly().then(data => {
     //   this.tasks = data;
