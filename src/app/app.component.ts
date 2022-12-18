@@ -8,6 +8,8 @@ export class AppComponent {
 
     x: number = 5
 
+    showParentLife: boolean = true;
+
     title: string = "Hello My - App"
 
     calc() {

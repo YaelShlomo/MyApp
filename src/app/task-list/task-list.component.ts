@@ -86,7 +86,12 @@ export class TaskListComponent implements OnInit {
     this._taskService.saveTasks(this.tasks).subscribe( data => {
       if (data)
         alert("Task saved successfully");
-    })
+      else
+        alert("Task failed");
+    }, 
+    err => {
+      alert(err);
+    });
   }
 
   constructor(private _taskService: TaskService) {

@@ -10,10 +10,13 @@ import { TaskService } from "./task.service";
 import { AsyncAwaitDemoComponent } from "./async-await-demo/async-await-demo.component";
 import { ObservableDemoComponent } from "./observable-demo/observable-demo.component";
 import { HttpClientModule } from "@angular/common/http";
+import { ParentLifeComponent } from "./life-cycle-demo/parent-life/parent-life.component";
+import { ChildLifeComponent } from "./life-cycle-demo/child-life/child-life.component";
 
 @NgModule({
     declarations: [AppComponent, TaskListComponent, TaskDetailsComponent, TaskDetailsFormTDComponent,
-        TaskDetailsFromMDComponent, AsyncAwaitDemoComponent, ObservableDemoComponent],
+        TaskDetailsFromMDComponent, AsyncAwaitDemoComponent, ObservableDemoComponent, ParentLifeComponent,
+        ChildLifeComponent],
     imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
     providers: [TaskService],
     bootstrap: [AppComponent],
