@@ -2,7 +2,7 @@
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { APP_USERS, User } from '../models/user.model';
+import { APP_USERS, User } from '../../../models/user.model';
 import { Priority, Task } from '../task.model'
 
 @Component({

@@ -1,24 +1,18 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser"
 import { AppComponent } from "./app.component";
-import { TaskListComponent } from './task-list/task-list.component';
-import { TaskDetailsComponent } from './task-details/task-details.component';
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { TaskDetailsFormTDComponent } from './task-details-form-td/task-details-form-td.component';
-import { TaskDetailsFromMDComponent } from './task-details-from-md/task-details-from-md.component';
-import { TaskService } from "./task.service";
+import { TaskService } from "./modules/tasks/task.service";
 import { AsyncAwaitDemoComponent } from "./async-await-demo/async-await-demo.component";
 import { ObservableDemoComponent } from "./observable-demo/observable-demo.component";
-import { HttpClientModule } from "@angular/common/http";
 import { ParentLifeComponent } from "./life-cycle-demo/parent-life/parent-life.component";
 import { ChildLifeComponent } from "./life-cycle-demo/child-life/child-life.component";
+import { FormsModule } from "@angular/forms";
+import { TasksModule } from "./modules/tasks/tasks.module";
 
 @NgModule({
-    declarations: [AppComponent, TaskListComponent, TaskDetailsComponent, TaskDetailsFormTDComponent,
-        TaskDetailsFromMDComponent, AsyncAwaitDemoComponent, ObservableDemoComponent, ParentLifeComponent,
+    declarations: [AppComponent, AsyncAwaitDemoComponent, ObservableDemoComponent, ParentLifeComponent,
         ChildLifeComponent],
-    imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
-    providers: [TaskService],
+    imports: [BrowserModule, FormsModule, TasksModule],
     bootstrap: [AppComponent],
 
 })
