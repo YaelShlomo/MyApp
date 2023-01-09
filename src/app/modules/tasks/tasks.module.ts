@@ -13,7 +13,8 @@ import { TaskService } from "./task.service";
     declarations: [TaskListComponent, TaskDetailsComponent, TaskDetailsFormTDComponent,
         TaskDetailsFromMDComponent],
     imports: [CommonModule ,BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
-    providers: [TaskService]
+    providers: [TaskService],
+    exports: [TaskListComponent]
 })
 export class TasksModule {
 
