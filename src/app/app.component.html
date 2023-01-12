@@ -1,7 +1,10 @@
-<h1>{{title}} from template url</h1>
-<a href='#'>link</a>
-<app-task-list></app-task-list>
-<!-- <app-async-await-demo></app-async-await-demo> -->
-<!-- <app-observable-demo></app-observable-demo> -->
-showParentLife: <input type="checkbox" [(ngModel)]="showParentLife"/>
-<app-parent-life [x]="3" *ngIf="showParentLife" ></app-parent-life>
+<div class="container">
+    <h1>{{title}} from template url</h1>
+    <router-outlet></router-outlet>
+    <!-- <a href='#'>link</a> -->
+    <!-- <app-task-list></app-task-list> -->
+    <!-- <app-async-await-demo></app-async-await-demo> -->
+    <!-- <app-observable-demo></app-observable-demo> -->
+    <!-- showParentLife: <input type="checkbox" [(ngModel)]="showParentLife"/> -->
+    <!-- <app-parent-life [x]="3" *ngIf="showParentLife" ></app-parent-life> -->
+</div>

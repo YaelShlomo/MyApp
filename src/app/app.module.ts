@@ -10,17 +10,13 @@ import { DemoModule } from "./modules/demo/demo.module";
 import { TaskListComponent } from "./modules/tasks/task-list/task-list.component";
 import { HomeComponent } from "./home/home.component";
 import { UsersComponent } from "./users/users.component";
+import { PageNotFounfComponent } from "./page-not-founf/page-not-founf.component";
+import { AppRoutingModule } from "./app-routing.module";
 
-const APP_ROUTES: Route[] = [
-    {path: "", redirectTo: "home"},
-    {path: "home", component: HomeComponent},
-    {path: "tasks", component: TaskListComponent},
-    {path: "users", component: UsersComponent}
-]
 @NgModule({
     declarations: [AppComponent, ParentLifeComponent,
         ChildLifeComponent],
-    imports: [BrowserModule, FormsModule, TasksModule, DemoModule, RouterModule.forRoot(APP_ROUTES)],
+    imports: [BrowserModule, FormsModule, TasksModule, DemoModule, AppRoutingModule],
     bootstrap: [AppComponent],
 
 })
