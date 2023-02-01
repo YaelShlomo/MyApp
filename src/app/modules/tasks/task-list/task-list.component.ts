@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Priority, Task } from '../task.model';
 import { TaskService } from '../task.service'
 
@@ -41,7 +42,7 @@ export class TaskListComponent implements OnInit {
   saveTaskToList(taskToSave: Task) {
     console.log(JSON.stringify(taskToSave));
     console.log("saveTaskToList");
-    if (taskToSave.id == 0 ) {
+    if (taskToSave.id == 0) {
       taskToSave.id = this.tasks.length + 1;
       this.tasks.push(taskToSave);
     }
@@ -55,7 +56,7 @@ export class TaskListComponent implements OnInit {
     //this.selectedTask.id=0;
     //this.selectedTask = null;
   }
-  
+
 
   showHelp() {
     alert("Do you need help?");
@@ -66,7 +67,7 @@ export class TaskListComponent implements OnInit {
   }
 
   btnClick(e: any) {
-    
+
   }
 
   search(str: string) {
@@ -77,34 +78,51 @@ export class TaskListComponent implements OnInit {
   }
 
   showTasksByDone(done: boolean) {
-    this._taskService.getTasksFromServerByDone(done).subscribe( data => {
+    this._taskService.getTasksFromServerByDone(done).subscribe(data => {
       this.tasks = data;
     })
   }
 
   saveTaskToServer() {
-    this._taskService.saveTasks(this.tasks).subscribe( data => {
+    this._taskService.saveTasks(this.tasks).subscribe(data => {
       if (data)
         alert("Task saved successfully");
       else
         alert("Task failed");
-    }, 
-    err => {
-      alert(err);
-    });
+    },
+      err => {
+        alert(err);
+      });
   }
 
-  constructor(private _taskService: TaskService) {
+  constructor(private _taskService: TaskService, private _acr: ActivatedRoute) {
     // _taskService.getTasksSlowly().then(data => {
     //   this.tasks = data;
     // })
 
-    _taskService.getTasksFromServer().subscribe(data =>{
-      this.tasks = data;
-    })
-   }
+    // _taskService.getTasksFromServer().subscribe(data =>{
+    //   this.tasks = data;
+    // })
+  }
+
+  userId?: number;
 
   ngOnInit(): void {
+    this._acr.paramMap.subscribe(paramMap => {
+      if (paramMap.has("id")) {
+        this.userId = +paramMap.get("id")!;
+      }
+    })
+
+
+    this._taskService.getTasksFromServer().subscribe(data => {
+      if(this.userId) {
+        this.tasks = data.filter(x => x.userId == this.userId)
+      }
+      else {
+        this.tasks = data;
+      }
+    })
   }
 
 }
