@@ -13,6 +13,7 @@ const APP_ROUTES: Route[] = [
     {path: "tasks", component: TaskListComponent},
     {path: "tasks/:id", component: TaskListComponent},
     {path: "users", component: UsersComponent, canActivate:[AuthGuardService]},
+    {path: "admin", loadChildren:()=>import("./modules/admin/admin.module").then(m=>m.AdminModule)},
     {path: "**", component: PageNotFounfComponent}
 ];
 
