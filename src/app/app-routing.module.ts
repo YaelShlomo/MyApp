@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Route, RouterModule } from "@angular/router";
+import { AuthGuardService } from "./auth-guard.service";
 import { HomeComponent } from "./home/home.component";
 import { TaskListComponent } from "./modules/tasks/task-list/task-list.component";
 import { PageNotFounfComponent } from "./page-not-founf/page-not-founf.component";
@@ -11,7 +12,7 @@ const APP_ROUTES: Route[] = [
     {path: "home", component: HomeComponent},
     {path: "tasks", component: TaskListComponent},
     {path: "tasks/:id", component: TaskListComponent},
-    {path: "users", component: UsersComponent},
+    {path: "users", component: UsersComponent, canActivate:[AuthGuardService]},
     {path: "**", component: PageNotFounfComponent}
 ];
 
