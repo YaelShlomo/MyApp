@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DirectivesDemoComponent implements OnInit {
 
+  x:string = "a";
+
+  tasks:string[] = ["task1", "task2", "task3", "task4", "task5"];
+
   constructor() { }
 
   ngOnInit(): void {

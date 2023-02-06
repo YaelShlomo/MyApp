@@ -5,7 +5,6 @@ import { ParentLifeComponent } from "./life-cycle-demo/parent-life/parent-life.c
 import { ChildLifeComponent } from "./life-cycle-demo/child-life/child-life.component";
 import { FormsModule } from "@angular/forms";
 import { TasksModule } from "./modules/tasks/tasks.module";
-import { DemoModule } from "./modules/demo/demo.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { UsersComponent } from "./users/users.component";
 import { HomeComponent } from "./home/home.component";
@@ -13,7 +12,7 @@ import { HomeComponent } from "./home/home.component";
 @NgModule({
     declarations: [AppComponent, ParentLifeComponent,
         ChildLifeComponent, UsersComponent, HomeComponent],
-    imports: [BrowserModule, FormsModule, TasksModule, DemoModule, AppRoutingModule],
+    imports: [BrowserModule, FormsModule, TasksModule, AppRoutingModule],
     bootstrap: [AppComponent],
 
 })
